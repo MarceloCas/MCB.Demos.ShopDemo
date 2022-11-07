@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+		<Authors>Marcelo Castelo Branco</Authors>
+		<Company>MCB</Company>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="MCB.Core.Domain.Entities" Version="0.34.0-alpha" />
+	  <PackageReference Include="MCB.Core.Infra.CrossCutting.Abstractions" Version="0.6.0-alpha" />
+	  <PackageReference Include="MCB.Core.Infra.CrossCutting.DependencyInjection.Abstractions" Version="0.6.0-alpha" />
+	  <PackageReference Include="MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions" Version="0.35.0-alpha" />
+	  <PackageReference Include="MCB.Core.Infra.CrossCutting.DesignPatterns.Validator" Version="0.16.0-alpha" />
+	  <PackageReference Include="FluentValidation" Version="11.2.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\MCB.Demos.ShopDemo.Microservices.Customer.Infra.CrossCutting\MCB.Demos.ShopDemo.Microservices.Customer.Infra.CrossCutting.csproj" />
+	</ItemGroup>
+
+</Project>
