@@ -5,7 +5,7 @@ using MCB.Demos.ShopDemo.Microservices.Customer.Application.UseCases.Base.Input;
 
 namespace MCB.Demos.ShopDemo.Microservices.Customer.Application.UseCases.Base;
 
-internal abstract class UseCaseBase<TInput>
+public abstract class UseCaseBase<TInput>
     : IUseCase<TInput>
     where TInput : UseCaseInputBase
 {

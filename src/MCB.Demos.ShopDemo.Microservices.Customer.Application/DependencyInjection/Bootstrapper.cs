@@ -15,6 +15,6 @@ public static class Bootstrapper
         dependencyInjectionContainer.RegisterSingleton<IExternalEventFactory, ExternalEventFactory>();
 
         // Use Cases
-        dependencyInjectionContainer.RegisterSingleton<IRegisterNewCustomerUseCase, RegisterNewCustomerUseCase>();
+        dependencyInjectionContainer.RegisterScoped<IRegisterNewCustomerUseCase, RegisterNewCustomerUseCase>();
     }
 }

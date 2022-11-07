@@ -7,7 +7,7 @@ using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.CustomerAddresse
 
 namespace MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.CustomerAddresses.Validators;
 
-internal sealed class ChangeCustomerAddressTypeInputShouldBeValidValidator
+public sealed class ChangeCustomerAddressTypeInputShouldBeValidValidator
     : InputBaseValidator<ChangeCustomerAddressTypeInput>,
     IChangeCustomerAddressTypeInputShouldBeValidValidator
 {
@@ -15,7 +15,7 @@ internal sealed class ChangeCustomerAddressTypeInputShouldBeValidValidator
     private readonly ICustomerAddressSpecifications _customerAddressSpecifications;
 
     // Constructors
-    internal ChangeCustomerAddressTypeInputShouldBeValidValidator(
+    public ChangeCustomerAddressTypeInputShouldBeValidValidator(
         ICustomerAddressSpecifications customerAddressSpecifications
     )
     {

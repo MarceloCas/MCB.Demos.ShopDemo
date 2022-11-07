@@ -7,7 +7,7 @@ using MCB.Demos.ShopDemo.Microservices.Customer.Messages.Internal.V1.Events.Cust
 
 namespace MCB.Demos.ShopDemo.Microservices.Customer.Application.Factories;
 
-internal class ExternalEventFactory
+public class ExternalEventFactory
     : IExternalEventFactory
 {
     public EventBase? Create((IAdapter adapter, IDomainEvent domainEvent) parameter)

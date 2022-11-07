@@ -5,7 +5,7 @@ using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.CustomerAddresse
 
 namespace MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.CustomerAddresses.Validators;
 
-internal sealed class CustomerAddressShouldBeValidValidator
+public sealed class CustomerAddressShouldBeValidValidator
     : DomainEntityBaseValidator<CustomerAddress>,
     ICustomerAddressShouldBeValidValidator
 {
@@ -13,7 +13,7 @@ internal sealed class CustomerAddressShouldBeValidValidator
     private readonly ICustomerAddressSpecifications _customerAddressSpecifications;
 
     // Constructors
-    internal CustomerAddressShouldBeValidValidator(
+    public CustomerAddressShouldBeValidValidator(
         ICustomerAddressSpecifications customerAddressSpecifications
     )
     {

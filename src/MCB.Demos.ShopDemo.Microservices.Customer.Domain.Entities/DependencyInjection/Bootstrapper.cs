@@ -11,6 +11,8 @@ using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.CustomerAddresse
 using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.CustomerAddressesInfo.Specifications.Interfaces;
 using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.CustomerAddressesInfo.Validators;
 using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.CustomerAddressesInfo.Validators.Interfaces;
+using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.Customers.Events.CustomerHasBeenRegistered.Factories;
+using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.Customers.Events.CustomerHasBeenRegistered.Factories.Interfaces;
 using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.Customers.Factories;
 using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.Customers.Factories.Interfaces;
 using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.Customers.Specifications;
@@ -93,9 +95,13 @@ public static class Bootstrapper
         dependencyInjectionContainer.RegisterSingleton<Customers.Validators.Interfaces.IChangeCustomerAddressInputShouldBeValidValidator, Customers.Validators.ChangeCustomerAddressInputShouldBeValidValidator>();
         dependencyInjectionContainer.RegisterSingleton<IChangeCustomerDefaultShippingAddressInputShouldBeValidValidator, ChangeCustomerDefaultShippingAddressInputShouldBeValidValidator>();
         dependencyInjectionContainer.RegisterSingleton<IChangeCustomerNameInputShouldBeValidValidator, ChangeCustomerNameInputShouldBeValidValidator>();
+        dependencyInjectionContainer.RegisterSingleton<IChangeCustomerBirthDateInputShouldBeValidValidator, ChangeCustomerBirthDateInputShouldBeValidValidator>();
         dependencyInjectionContainer.RegisterSingleton<IClearCustomerDefaultShippingAddressInputShouldBeValidValidator, ClearCustomerDefaultShippingAddressInputShouldBeValidValidator>();
         dependencyInjectionContainer.RegisterSingleton<IRegisterNewCustomerInputShouldBeValidValidator, RegisterNewCustomerInputShouldBeValidValidator>();
         dependencyInjectionContainer.RegisterSingleton<IRemoveCustomerAddressInputShouldBeValidValidator, RemoveCustomerAddressInputShouldBeValidValidator>();
+
+        // Events
+        dependencyInjectionContainer.RegisterSingleton<ICustomerHasBeenRegisteredDomainEventFactory, CustomerHasBeenRegisteredDomainEventFactory>();
     }
     private static void ConfigureDependencyInjectionForAddressValueObjects(IDependencyInjectionContainer dependencyInjectionContainer)
     {

@@ -13,7 +13,7 @@ using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Services.Customers.Interf
 
 namespace MCB.Demos.ShopDemo.Microservices.Customer.Domain.Services.Customers;
 
-internal class CustomerService
+public class CustomerService
     : ServiceBase<Entities.Customers.Customer>,
     ICustomerService
 {
@@ -27,7 +27,7 @@ internal class CustomerService
     private readonly ICustomerHasBeenRegisteredDomainEventFactory _customerHasBeenRegisteredDomainEventFactory;
 
     // Constructors
-    internal CustomerService(
+    public CustomerService(
         INotificationPublisher notificationPublisher,
         IDomainEventPublisher domainEventPublisher,
         IAdapter adapter,

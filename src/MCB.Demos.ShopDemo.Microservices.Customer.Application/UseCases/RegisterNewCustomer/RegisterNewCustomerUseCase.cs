@@ -9,7 +9,7 @@ using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Services.Customers.Interf
 
 namespace MCB.Demos.ShopDemo.Microservices.Customer.Application.UseCases.RegisterNewCustomer;
 
-internal class RegisterNewCustomerUseCase
+public class RegisterNewCustomerUseCase
     : UseCaseBase<RegisterNewCustomerUseCaseInput>,
     IRegisterNewCustomerUseCase
 {
@@ -17,7 +17,7 @@ internal class RegisterNewCustomerUseCase
     private readonly ICustomerService _customerService;
 
     // Constructors
-    internal RegisterNewCustomerUseCase(
+    public RegisterNewCustomerUseCase(
         IDomainEventSubscriber domainEventSubscriber,
         IExternalEventFactory externalEventFactory,
         IAdapter adapter,
