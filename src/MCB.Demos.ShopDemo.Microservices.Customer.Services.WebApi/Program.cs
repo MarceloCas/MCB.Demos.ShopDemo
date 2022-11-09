@@ -3,6 +3,7 @@ using Microsoft.OpenApi.Models;
 using MCB.Demos.ShopDemo.Microservices.Customer.Services.WebApi.Services;
 using MCB.Demos.ShopDemo.Microservices.Customer.Services.WebApi.HealthCheck;
 using MCB.Core.Infra.CrossCutting.DependencyInjection;
+using MCB.Demos.ShopDemo.Microservices.Customer.Services.WebApi.ExtensionMethods;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,6 +48,7 @@ builder.Services.AddHealthChecks().AddCheck<DefaultHealthCheck>("Default");
 
 var app = builder.Build();
 
+app.UseMcbDependencyInjection();
 app.MapGrpcService<GreeterService>();
 app.UseSwagger();
 app.UseSwaggerUI(options =>
