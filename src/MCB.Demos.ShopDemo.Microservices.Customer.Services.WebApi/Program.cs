@@ -3,7 +3,7 @@ using Microsoft.OpenApi.Models;
 using MCB.Demos.ShopDemo.Microservices.Customer.Services.WebApi.Services;
 using MCB.Demos.ShopDemo.Microservices.Customer.Services.WebApi.HealthCheck;
 using MCB.Core.Infra.CrossCutting.DependencyInjection;
-using MCB.Demos.ShopDemo.Microservices.Customer.Services.WebApi.ExtensionMethods;
+using MCB.Demos.ShopDemo.Microservices.Customer.Services.WebApi.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
