@@ -5,9 +5,9 @@ using MCB.Demos.ShopDemo.Microservices.Customer.Application.UseCases.Base.Input;
 
 namespace MCB.Demos.ShopDemo.Microservices.Customer.Application.UseCases.Base;
 
-public abstract class UseCaseBase<TInput>
-    : IUseCase<TInput>
-    where TInput : UseCaseInputBase
+public abstract class UseCaseBase<TUseCaseInput>
+    : IUseCase<TUseCaseInput>
+    where TUseCaseInput : UseCaseInputBase
 {
     // Fields
     private readonly IDomainEventSubscriber _domainEventSubscriber;
@@ -29,16 +29,16 @@ public abstract class UseCaseBase<TInput>
     }
 
     // Public Methods
-    public async Task<bool> ExecuteAsync(TInput input, CancellationToken cancellationToken)
+    public async Task<bool> ExecuteAsync(TUseCaseInput useCaseInput, CancellationToken cancellationToken)
     {
-        if (!await ExecuteInternalAsync(input, cancellationToken))
+        if (!await ExecuteInternalAsync(useCaseInput, cancellationToken))
             return false;
 
         return await PublishDomainEventsToExternalBusAsync(cancellationToken);
     }
 
     // Protected Abstract Methods
-    protected abstract Task<bool> ExecuteInternalAsync(TInput input, CancellationToken cancellationToken);
+    protected abstract Task<bool> ExecuteInternalAsync(TUseCaseInput useCaseInput, CancellationToken cancellationToken);
 
     // Private Methods
     private async Task<bool> PublishDomainEventsToExternalBusAsync(CancellationToken cancellationToken)

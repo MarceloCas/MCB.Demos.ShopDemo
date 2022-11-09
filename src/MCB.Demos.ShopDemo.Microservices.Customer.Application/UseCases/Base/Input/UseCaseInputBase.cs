@@ -3,15 +3,7 @@
 public abstract record UseCaseInputBase
 {
     // Properties
-    public Guid TenantId { get; }
-    public string ExecutionUser { get; }
-    public string SourcePlatform { get; }
-
-    // Constructors
-    protected UseCaseInputBase(Guid tenantId, string executionUser, string sourcePlatform)
-    {
-        TenantId = tenantId;
-        ExecutionUser = executionUser;
-        SourcePlatform = sourcePlatform;
-    }
+    public Guid TenantId { get; set; }
+    public string? ExecutionUser { get; set; }
+    public string? SourcePlatform { get; set; }
 }

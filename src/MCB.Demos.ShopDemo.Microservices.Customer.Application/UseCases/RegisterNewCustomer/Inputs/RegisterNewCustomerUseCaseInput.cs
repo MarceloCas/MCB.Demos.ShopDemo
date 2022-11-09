@@ -6,24 +6,8 @@ public record RegisterNewCustomerUseCaseInput
     : UseCaseInputBase
 {
     // Properties
-    public string FirstName { get; }
-    public string LastName { get; }
-    public DateOnly BirthDate { get; }
-    public string Email { get; }
-
-    public RegisterNewCustomerUseCaseInput(
-        Guid tenantId,
-        string firstName,
-        string lastName,
-        DateOnly birthDate,
-        string email,
-        string executionUser,
-        string sourcePlatform
-    ) : base(tenantId, executionUser, sourcePlatform)
-    {
-        FirstName = firstName;
-        LastName = lastName;
-        BirthDate = birthDate;
-        Email = email;
-    }
+    public string? FirstName { get; set; }
+    public string? LastName { get; set; }
+    public DateTimeOffset? BirthDate { get; set; }
+    public string? Email { get; set; }
 }

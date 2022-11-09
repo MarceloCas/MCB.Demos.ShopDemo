@@ -7,7 +7,10 @@ namespace MCB.Demos.ShopDemo.Microservices.Customer.Services.WebApi.DependencyIn
 public static class Bootstrapper
 {
     // Public Methods
-    public static void ConfigureDependencyInjection(IDependencyInjectionContainer dependencyInjectionContainer)
+    public static void ConfigureDependencyInjection(
+        IDependencyInjectionContainer dependencyInjectionContainer,
+        Action<TypeAdapterConfig> adapterMapAction
+    )
     {
         // Inject Dependencies
         Core.Infra.CrossCutting.DependencyInjection.Bootstrapper.ConfigureDependencyInjection(dependencyInjectionContainer);
@@ -20,7 +23,7 @@ public static class Bootstrapper
                 {
                     var typeAdapterConfig = new TypeAdapterConfig();
 
-                    //typeAdapterConfig.ForType<AddressDto, Address>();
+                    adapterMapAction(typeAdapterConfig);
 
                     return typeAdapterConfig;
                 });

@@ -31,7 +31,7 @@ public class RegisterNewCustomerUseCase
     protected override Task<bool> ExecuteInternalAsync(RegisterNewCustomerUseCaseInput input, CancellationToken cancellationToken)
     {
         return _customerService.RegisterNewCustomerAsync(
-            Adapter.Adapt<RegisterNewCustomerUseCaseInput, RegisterNewCustomerServiceInput>(input),
+            input: Adapter.Adapt<RegisterNewCustomerUseCaseInput, RegisterNewCustomerServiceInput>(input)!,
             cancellationToken
         );
     }

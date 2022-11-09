@@ -8,14 +8,14 @@ public record RegisterNewCustomerServiceInput
     // Properties
     public string FirstName { get; }
     public string LastName { get; }
-    public DateOnly BirthDate { get; }
+    public DateTimeOffset BirthDate { get; }
     public string Email { get; }
 
     public RegisterNewCustomerServiceInput(
         Guid tenantId,
         string firstName,
         string lastName,
-        DateOnly birthDate,
+        DateTimeOffset birthDate,
         string email,
         string executionUser,
         string sourcePlatform

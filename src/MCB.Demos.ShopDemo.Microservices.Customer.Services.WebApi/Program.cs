@@ -4,12 +4,16 @@ using MCB.Demos.ShopDemo.Microservices.Customer.Services.WebApi.Services;
 using MCB.Demos.ShopDemo.Microservices.Customer.Services.WebApi.HealthCheck;
 using MCB.Core.Infra.CrossCutting.DependencyInjection;
 using MCB.Demos.ShopDemo.Microservices.Customer.Services.WebApi.Middlewares;
+using MCB.Demos.ShopDemo.Microservices.Customer.Services.WebApi.Adapters;
 
 var builder = WebApplication.CreateBuilder(args);
 
 #region Configure Services
 builder.Services.AddMcbDependencyInjection(dependencyInjectionContainer =>
-    MCB.Demos.ShopDemo.Microservices.Customer.Services.WebApi.DependencyInjection.Bootstrapper.ConfigureDependencyInjection(dependencyInjectionContainer)
+    MCB.Demos.ShopDemo.Microservices.Customer.Services.WebApi.DependencyInjection.Bootstrapper.ConfigureDependencyInjection(
+        dependencyInjectionContainer,
+        adapterMapAction: typeAdapterConfig => AdapterConfig.Configure(typeAdapterConfig)
+    )
 );
 
 builder.Services.AddGrpc();
