@@ -29,7 +29,10 @@ public class CustomControllerBase
     }
 
     // Private Methods
-    private ResponseBase CreateResponse<TUseCaseInput>(Func<TUseCaseInput, ResponseBase> responseBaseFactory, TUseCaseInput useCaseInput)
+    private ResponseBase CreateResponse<TUseCaseInput>(
+        Func<TUseCaseInput, ResponseBase> responseBaseFactory, 
+        TUseCaseInput useCaseInput
+    )
     {
         var response = responseBaseFactory(useCaseInput);
 
