@@ -27,13 +27,14 @@ using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.ValueObjects.Ema
 using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.ValueObjects.Email.Specifications.Interfaces;
 using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.ValueObjects.Email.Validators;
 using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.ValueObjects.Email.Validators.Interfaces;
+using MCB.Demos.ShopDemo.Microservices.Customer.Infra.CrossCutting.Settings;
 
 namespace MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.DependencyInjection;
 
 public static class Bootstrapper
 {
     // Public Methods
-    public static void ConfigureDependencyInjection(IDependencyInjectionContainer dependencyInjectionContainer)
+    public static void ConfigureDependencyInjection(IDependencyInjectionContainer dependencyInjectionContainer, AppSettings appSettings)
     {
         ConfigureDependencyInjectionForCustomerAddress(dependencyInjectionContainer);
         ConfigureDependencyInjectionForCustomerAddressInfo(dependencyInjectionContainer);

@@ -1,7 +1,6 @@
 ﻿using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.DataContexts.Base.Abstractions;
 using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.DataContexts.Base.Models;
 using StackExchange.Redis;
-using System.Diagnostics;
 
 namespace MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.DataContexts.Base;
 
