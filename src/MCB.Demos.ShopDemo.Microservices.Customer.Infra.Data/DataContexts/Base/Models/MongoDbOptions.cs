@@ -1,17 +1,24 @@
 ﻿using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.DataContexts.Base.Models
+namespace MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.DataContexts.Base.Models;
+
+public class MongoDbOptions
 {
-    public class MongoDbOptions
+    public string ConnectionString { get; }
+    public string DatabaseName { get; }
+    public MongoDatabaseSettings? MongoDatabaseSettings { get; }
+    public ClientSessionOptions? MongoDbClientSessionOptions { get; }
+
+    public MongoDbOptions(
+        string connectionString,
+        string databaseName,
+        MongoDatabaseSettings? mongoDatabaseSettings,
+        ClientSessionOptions? mongoDbClientSessionOptions
+    )
     {
-        public string? ConnectionString { get; set; }
-        public string? DatabaseName { get; set; }
-        public MongoDatabaseSettings? MongoDatabaseSettings { get; set; }
-        public ClientSessionOptions? MongoDbClientSessionOptions { get; set; }
+        ConnectionString = connectionString;
+        DatabaseName = databaseName;
+        MongoDatabaseSettings = mongoDatabaseSettings;
+        MongoDbClientSessionOptions = mongoDbClientSessionOptions;
     }
 }

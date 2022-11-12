@@ -1,5 +1,4 @@
-﻿using MongoDB.Bson;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.DataContexts.Base.Abstractions;
 using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.DataContexts.Base.Models;
 

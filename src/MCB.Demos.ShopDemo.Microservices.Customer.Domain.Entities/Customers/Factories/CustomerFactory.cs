@@ -68,7 +68,7 @@ public sealed class CustomerFactory
     }
 
     // Public Methods
-    public Customer Create()
+    public Customer? Create()
     {
         return new Customer(
             _dateTimeProvider,
