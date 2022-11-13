@@ -1,6 +1,7 @@
-﻿using StackExchange.Redis;
+﻿using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.DataContexts.Base.Abstractions;
+using StackExchange.Redis;
 
-namespace MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.DataContexts.Base.Abstractions;
+namespace MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.Redis.DataContexts.Base.Interfaces;
 
 public interface IRedisDataContext
     : IDataContext

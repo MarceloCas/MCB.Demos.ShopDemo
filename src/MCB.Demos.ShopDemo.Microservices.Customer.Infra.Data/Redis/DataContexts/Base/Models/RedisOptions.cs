@@ -1,4 +1,4 @@
-﻿namespace MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.DataContexts.Base.Models;
+﻿namespace MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.Redis.DataContexts.Base.Models;
 
 public class RedisOptions
 {

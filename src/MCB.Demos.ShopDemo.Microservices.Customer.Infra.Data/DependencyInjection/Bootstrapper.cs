@@ -1,8 +1,12 @@
 ﻿using MCB.Core.Infra.CrossCutting.DependencyInjection.Abstractions.Interfaces;
 using MCB.Demos.ShopDemo.Microservices.Customer.Domain.Repositories.Interfaces;
 using MCB.Demos.ShopDemo.Microservices.Customer.Infra.CrossCutting.Settings;
-using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.DataContexts;
-using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.DataContexts.Interfaces;
+using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.MongoDb;
+using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.MongoDb.DataContexts.Base.Models;
+using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.MongoDb.Interfaces;
+using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.Redis.DataContexts;
+using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.Redis.DataContexts.Base.Models;
+using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.Redis.DataContexts.Interfaces;
 using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.Repositories;
 
 namespace MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.DependencyInjection;
@@ -15,7 +19,7 @@ public static class Bootstrapper
         // Data Contexts
         dependencyInjectionContainer.RegisterSingleton<IDefaultMongoDbDataContext>(dependencyInjectionContainer =>
             new DefaultMongoDbDataContext(
-                new DataContexts.Base.Models.MongoDbOptions(
+                new MongoDbOptions(
                     connectionString: appSettings.MongoDb.ConnectionString,
                     databaseName: appSettings.MongoDb.DatabaseName,
                     mongoDatabaseSettings: null,
@@ -25,7 +29,7 @@ public static class Bootstrapper
         );
         dependencyInjectionContainer.RegisterSingleton<IDefaultRedisDataContext>(dependencyInjectionContainer =>
             new DefaultRedisDataContext(
-                new DataContexts.Base.Models.RedisOptions(
+                new RedisOptions(
                     connectionString: appSettings.Redis.ConnectionString
                 )
             )

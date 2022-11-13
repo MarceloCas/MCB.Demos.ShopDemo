@@ -1,8 +1,8 @@
-﻿using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.DataContexts.Base.Abstractions;
-using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.DataContexts.Base.Models;
+﻿using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.Redis.DataContexts.Base.Interfaces;
+using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.Redis.DataContexts.Base.Models;
 using StackExchange.Redis;
 
-namespace MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.DataContexts.Base;
+namespace MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.Redis.DataContexts.Base;
 
 public abstract class RedisDataContextBase
     : IRedisDataContext

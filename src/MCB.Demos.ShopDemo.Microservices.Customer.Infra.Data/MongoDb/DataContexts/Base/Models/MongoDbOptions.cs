@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 
-namespace MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.DataContexts.Base.Models;
+namespace MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.MongoDb.DataContexts.Base.Models;
 
 public class MongoDbOptions
 {
