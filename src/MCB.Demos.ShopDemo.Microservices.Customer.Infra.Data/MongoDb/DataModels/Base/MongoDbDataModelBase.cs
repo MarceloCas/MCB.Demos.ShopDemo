@@ -4,12 +4,13 @@ public abstract class MongoDbDataModelBase
 {
     // Properties
     public Guid Id { get; set; }
-    public DateTimeOffset CreatedAt { get; set; }
+    public Guid TenantId { get; set; }
+    public DateTime CreatedAt { get; set; }
     public string CreatedBy { get; set; }
-    public DateTimeOffset? LastUpdatedAt { get; set; }
+    public DateTime? LastUpdatedAt { get; set; }
     public string? LastUpdatedBy { get; set; }
     public string LastSourcePlatform { get; set; }
-    public DateTimeOffset RegistryVersion { get; set; }
+    public DateTime RegistryVersion { get; set; }
 
     public IDictionary<string, object>? ExtraElements { get; set; }
 

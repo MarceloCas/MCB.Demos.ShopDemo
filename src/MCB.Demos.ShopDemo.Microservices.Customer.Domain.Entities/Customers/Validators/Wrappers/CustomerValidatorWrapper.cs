@@ -70,7 +70,7 @@ public static class CustomerValidatorWrapper
         ICustomerSpecifications customerSpecifications,
         ValidatorBase<TInput>.FluentValidationValidatorWrapper fluentValidationValidatorWrapper,
         Expression<Func<TInput, TProperty>> propertyExpression,
-        Func<TInput, DateOnly> getBirthDateFunction
+        Func<TInput, DateTime> getBirthDateFunction
     )
     {
         fluentValidationValidatorWrapper.RuleFor(propertyExpression)
@@ -83,7 +83,7 @@ public static class CustomerValidatorWrapper
         ICustomerSpecifications customerSpecifications,
         ValidatorBase<TInput>.FluentValidationValidatorWrapper fluentValidationValidatorWrapper,
         Expression<Func<TInput, TProperty>> propertyExpression,
-        Func<TInput, DateOnly> getBirthDateFunction
+        Func<TInput, DateTime> getBirthDateFunction
     )
     {
         fluentValidationValidatorWrapper.RuleFor(propertyExpression)

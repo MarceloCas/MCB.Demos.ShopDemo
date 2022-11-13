@@ -6,12 +6,12 @@ public sealed record ChangeCustomerBirthDateInput
     : InputBase
 {
     // Properties
-    public DateOnly BirthDate { get; }
+    public DateTime BirthDate { get; }
 
     // Constructors
     public ChangeCustomerBirthDateInput(
         Guid tenantId,
-        DateOnly birthDate,
+        DateTime birthDate,
         string executionUser,
         string sourcePlatform
     ) : base(tenantId, executionUser, sourcePlatform)

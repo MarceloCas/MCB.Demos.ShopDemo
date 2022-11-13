@@ -7,7 +7,7 @@ public record CustomerHasBeenRegisteredDomainEvent
 {
     public CustomerHasBeenRegisteredDomainEvent(
         Guid id,
-        DateTimeOffset timestamp,
+        DateTime timestamp,
         string domainEventType,
         Customer customer
     ) : base(id, timestamp, domainEventType, customer)

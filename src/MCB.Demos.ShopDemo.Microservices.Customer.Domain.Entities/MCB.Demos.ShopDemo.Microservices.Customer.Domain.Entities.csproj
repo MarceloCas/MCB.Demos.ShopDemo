@@ -10,7 +10,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="MCB.Core.Domain.Entities" Version="0.34.0-alpha" />
+	  <PackageReference Include="MCB.Core.Domain.Entities" Version="0.35.0-alpha" />
 	  <PackageReference Include="MCB.Core.Infra.CrossCutting.Abstractions" Version="0.6.0-alpha" />
 	  <PackageReference Include="MCB.Core.Infra.CrossCutting.DependencyInjection.Abstractions" Version="0.6.0-alpha" />
 	  <PackageReference Include="MCB.Core.Infra.CrossCutting.DesignPatterns.Abstractions" Version="0.35.0-alpha" />

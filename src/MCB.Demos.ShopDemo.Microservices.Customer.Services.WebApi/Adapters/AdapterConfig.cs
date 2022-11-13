@@ -12,6 +12,8 @@ public class AdapterConfig
         ConfigureForWebApi(typeAdapterConfig);
 
         Application.Adapters.AdapterConfig.Configure(typeAdapterConfig);
+        Domain.Adapters.AdapterConfig.Configure(typeAdapterConfig);
+        Infra.Data.Adapters.AdapterConfig.Configure(typeAdapterConfig);
     }
 
     // Private Methods

@@ -8,7 +8,7 @@ public sealed record RegisterNewCustomerInput
     // Properties
     public string FirstName { get; }
     public string LastName { get; }
-    public DateOnly BirthDate { get; }
+    public DateTime BirthDate { get; }
     public string Email { get; }
 
     // Constructors
@@ -16,7 +16,7 @@ public sealed record RegisterNewCustomerInput
         Guid tenantId,
         string firstName,
         string lastName,
-        DateOnly birthDate,
+        DateTime birthDate,
         string email,
         string executionUser,
         string sourcePlatform

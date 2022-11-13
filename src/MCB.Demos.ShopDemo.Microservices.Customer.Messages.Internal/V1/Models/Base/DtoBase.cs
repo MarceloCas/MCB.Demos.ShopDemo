@@ -6,11 +6,11 @@ public abstract class DtoBase
     public Guid Id { get; set; }
     public Guid TenantId { get; set; }
     public string CreatedBy { get; set; }
-    public DateTimeOffset CreatedAt { get; set; }
+    public DateTime CreatedAt { get; set; }
     public string? LastUpdatedBy { get; set; }
-    public DateTimeOffset? LastUpdatedAt { get; set; }
+    public DateTime? LastUpdatedAt { get; set; }
     public string? LastSourcePlatform { get; set; }
-    public DateTimeOffset RegistryVersion { get; set; }
+    public DateTime RegistryVersion { get; set; }
 
     // Constructors
     protected DtoBase()

@@ -34,12 +34,12 @@ public sealed class CustomerSpecifications
         return lastName.Length <= 150;
     }
 
-    public bool CustomerShouldHaveBirthDate(DateOnly birthDate)
+    public bool CustomerShouldHaveBirthDate(DateTime birthDate)
     {
-        return birthDate > DateOnly.MinValue;
+        return birthDate > DateTime.MinValue;
     }
-    public bool CustomerShouldHaveValidBirthDate(DateOnly birthDate)
+    public bool CustomerShouldHaveValidBirthDate(DateTime birthDate)
     {
-        return birthDate <= DateOnly.FromDateTime(DateTimeProvider.GetDate().Date);
+        return birthDate <= DateTimeProvider.GetDate().Date;
     }
 }

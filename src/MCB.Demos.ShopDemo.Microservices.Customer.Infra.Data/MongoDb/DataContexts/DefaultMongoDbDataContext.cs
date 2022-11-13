@@ -1,25 +1,34 @@
 ﻿using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.MongoDb.DataContexts.Base;
 using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.MongoDb.DataContexts.Base.Models;
-using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.MongoDb.Interfaces;
+using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.MongoDb.DataContexts.Interfaces;
+using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.MongoDb.DataModels;
 using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.MongoDb.Mappings;
 using MongoDB.Driver;
 
-namespace MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.MongoDb;
+namespace MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.MongoDb.DataContexts;
 
 public class DefaultMongoDbDataContext
     : MongoDbDataContextBase,
     IDefaultMongoDbDataContext
 {
+    // Constructors
     public DefaultMongoDbDataContext(
+        MongoClient client,
         MongoDbOptions options
-    ) : base(options)
+    ) : base(client, options)
+    {
+        
+    }
+
+    // Protected Methods
+    protected override void InitInternal()
     {
         RegisterMongoCollection(
-            name: "Customer",
+            name: "Customers",
             mongoDbDataModelMap: new CustomerMongoDbDataModelMap(),
-            indexConfigHandler: indexConfig =>
+            indexConfigHandler: () =>
             {
-                indexConfig
+                return Builders<CustomerMongoDbDataModel>.IndexKeys
                     .Ascending(q => q.Email)
                     .Ascending(q => q.BirthDate);
             }

@@ -40,6 +40,6 @@ public interface ICustomerSpecifications
     bool CustomerShouldHaveLastName(string lastName);
     bool CustomerShouldHaveLastNameMaximumLength(string lastName);
 
-    bool CustomerShouldHaveBirthDate(DateOnly birthDate);
-    bool CustomerShouldHaveValidBirthDate(DateOnly birthDate);
+    bool CustomerShouldHaveBirthDate(DateTime birthDate);
+    bool CustomerShouldHaveValidBirthDate(DateTime birthDate);
 }

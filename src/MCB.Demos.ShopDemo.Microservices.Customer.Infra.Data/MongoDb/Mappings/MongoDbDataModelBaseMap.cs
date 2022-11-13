@@ -1,20 +1,22 @@
 ﻿using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.MongoDb.DataModels.Base;
+using MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.MongoDb.Mappings.Base;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
 
-namespace MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.MongoDb.Mappings.Base;
+namespace MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.MongoDb.Mappings;
 
-public abstract class MongoDbDataModelMapBase<TMongoDbDataModel>
-        where TMongoDbDataModel : MongoDbDataModelBase
+public class MongoDbDataModelBaseMap
+    : IMongoDbDataModelMap<MongoDbDataModelBase>
 {
-    // Protected Methods
-    protected abstract void MapInternal(BsonClassMap<TMongoDbDataModel> classMap);
-
-    // Public Methods
     public void Map()
     {
-        BsonClassMap.RegisterClassMap<TMongoDbDataModel>(classMap =>
+        BsonClassMap.RegisterClassMap<MongoDbDataModelBase>(classMap =>
         {
-            classMap.MapIdMember(dataModel => dataModel.Id);
+            classMap.MapIdMember(dataModel => dataModel.Id)
+                .SetSerializer(new GuidSerializer(BsonType.String));
+
+            classMap.MapMember(dataModel => dataModel.TenantId);
 
             classMap.MapMember(dataModel => dataModel.CreatedAt);
             classMap.MapMember(dataModel => dataModel.CreatedBy);
@@ -27,9 +29,7 @@ public abstract class MongoDbDataModelMapBase<TMongoDbDataModel>
             classMap.MapMember(dataModel => dataModel.RegistryVersion);
 
             classMap.MapExtraElementsMember(dataModel => dataModel.ExtraElements);
-            classMap.SetDiscriminator(typeof(TMongoDbDataModel).Name);
-
-            MapInternal(classMap);
+            classMap.SetDiscriminator(nameof(MongoDbDataModelBase));
         });
     }
 }

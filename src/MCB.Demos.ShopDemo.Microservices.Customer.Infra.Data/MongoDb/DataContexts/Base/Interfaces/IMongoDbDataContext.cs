@@ -6,5 +6,5 @@ namespace MCB.Demos.ShopDemo.Microservices.Customer.Infra.Data.MongoDb.DataConte
 public interface IMongoDbDataContext
     : IDataContext
 {
-    IMongoCollection<TMongoDbDataModel>? GetCollection<TMongoDbDataModel>();
+    IMongoCollection<TMongoDbDataModel> GetCollection<TMongoDbDataModel>();
 }

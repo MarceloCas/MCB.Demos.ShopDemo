@@ -14,4 +14,10 @@ public struct EmailValueObject
     // Operators
     public static implicit operator string(EmailValueObject emailValueObject) => emailValueObject.Address;
     public static implicit operator EmailValueObject(string address) => new(address);
+
+    // Public Methods
+    public override string ToString()
+    {
+        return Address;
+    }
 }

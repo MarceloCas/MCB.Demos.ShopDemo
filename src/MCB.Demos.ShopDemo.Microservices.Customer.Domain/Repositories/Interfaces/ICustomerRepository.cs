@@ -5,4 +5,5 @@ namespace MCB.Demos.ShopDemo.Microservices.Customer.Domain.Repositories.Interfac
 public interface ICustomerRepository
     : IRepository<Entities.Customers.Customer>
 {
+    Task<Entities.Customers.Customer?> GetByEmailAsync(string email, CancellationToken cancellationToken);
 }

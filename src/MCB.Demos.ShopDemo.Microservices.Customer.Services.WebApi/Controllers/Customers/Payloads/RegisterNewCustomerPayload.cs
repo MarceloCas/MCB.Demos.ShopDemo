@@ -7,6 +7,6 @@ public class RegisterNewCustomerPayload
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public DateTimeOffset BirthDate { get; set; }
+    public DateTime BirthDate { get; set; }
     public string Email { get; set; }
 }

@@ -23,6 +23,7 @@ public class CustomerService
     public static readonly NotificationType CustomerEmailAlreadyRegisteredNotificationType = NotificationType.Error;
 
     // Fields
+    private readonly ICustomerRepository _customerRepository;
     private readonly ICustomerFactory _customerFactory;
     private readonly ICustomerHasBeenRegisteredDomainEventFactory _customerHasBeenRegisteredDomainEventFactory;
 
@@ -36,6 +37,7 @@ public class CustomerService
         ICustomerHasBeenRegisteredDomainEventFactory customerHasBeenRegisteredDomainEventFactory
     ) : base(notificationPublisher, domainEventPublisher, adapter, customerRepository)
     {
+        _customerRepository = customerRepository;
         _customerFactory = customerFactory;
         _customerHasBeenRegisteredDomainEventFactory = customerHasBeenRegisteredDomainEventFactory;
     }
@@ -44,7 +46,7 @@ public class CustomerService
     public async Task<bool> RegisterNewCustomerAsync(RegisterNewCustomerServiceInput input, CancellationToken cancellationToken)
     {
         // Validate input before process
-        if (Repository.Get(customer => customer.Email == input.Email).Any())
+        if ((await _customerRepository.GetByEmailAsync(input.Email, cancellationToken)) is not null)
         {
             await NotificationPublisher.PublishNotificationAsync(
                 new Notification(
@@ -60,8 +62,8 @@ public class CustomerService
 
         // Process
         var customer = _customerFactory
-            .Create()
-            .RegisterNewCustomer(Adapter.Adapt<RegisterNewCustomerServiceInput, RegisterNewCustomerInput>(input));
+            .Create()!
+            .RegisterNewCustomer(Adapter.Adapt<RegisterNewCustomerServiceInput, RegisterNewCustomerInput>(input)!);
 
         // Validate domain entity after process
         if (!await ValidateDomainEntityAndSendNotificationsAsync(customer, cancellationToken))
@@ -73,7 +75,7 @@ public class CustomerService
 
         // Send domain event
         await DomainEventPublisher.PublishDomainEventAsync(
-            _customerHasBeenRegisteredDomainEventFactory.Create(customer),
+            _customerHasBeenRegisteredDomainEventFactory.Create(customer)!,
             cancellationToken
         );
 

@@ -7,6 +7,7 @@
 		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<Authors>Marcelo Castelo Branco</Authors>
 		<Company>MCB</Company>
+		<UserSecretsId>cfaad13b-0503-4212-9e30-46569cab87b7</UserSecretsId>
 	</PropertyGroup>
 
 	<ItemGroup>

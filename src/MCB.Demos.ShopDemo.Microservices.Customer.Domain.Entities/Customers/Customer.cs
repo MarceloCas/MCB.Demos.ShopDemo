@@ -21,7 +21,7 @@ public sealed class Customer
     // Properties
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
-    public DateOnly BirthDate { get; private set; }
+    public DateTime BirthDate { get; private set; }
     public EmailValueObject Email { get; private set; }
 
     // Navigation Properties
@@ -102,6 +102,25 @@ public sealed class Customer
             .SetBirthDate(input.BirthDate)
             .SetEmail(input.Email)
             .RegisterNewInternal<Customer>(input.TenantId, input.ExecutionUser, input.SourcePlatform);
+    }
+    public Customer SetExistingCustomerInfo(SetExistingCustomerInfoInput input)
+    {
+        SetExistingInfoInternal<Customer>(
+            input.Id,
+            input.TenantId,
+            input.CreatedBy,
+            input.CreatedAt,
+            input.LastUpdatedBy,
+            input.LastUpdatedAt,
+            input.LastSourcePlatform,
+            input.RegistryVersion
+        );
+
+        SetName(input.FirstName, input.LastName);
+        SetBirthDate(input.BirthDate);
+        SetEmail(input.Email);
+
+        return this;
     }
     public Customer ChangeCustomerName(ChangeCustomerNameInput input)
     {
@@ -248,7 +267,7 @@ public sealed class Customer
 
         return this;
     }
-    private Customer SetBirthDate(DateOnly birthDate)
+    private Customer SetBirthDate(DateTime birthDate)
     {
         BirthDate = birthDate;
 
