@@ -75,7 +75,7 @@ public class CustomerService
 
         // Send domain event
         await DomainEventPublisher.PublishDomainEventAsync(
-            _customerHasBeenRegisteredDomainEventFactory.Create(customer)!,
+            _customerHasBeenRegisteredDomainEventFactory.Create((customer, input.ExecutionUser, input.SourcePlatform))!,
             cancellationToken
         );
 

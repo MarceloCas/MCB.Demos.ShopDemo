@@ -16,15 +16,18 @@ public class CustomerHasBeenRegisteredDomainEventFactory
     }
 
     // Public Methods
-    public CustomerHasBeenRegisteredDomainEvent Create(Customer parameter)
+    public CustomerHasBeenRegisteredDomainEvent Create((Customer customer, string executionUser, string sourcePlatform) parameter)
     {
         var (id, timestamp, domainEventType) = GetBaseEventFields<CustomerHasBeenRegisteredDomainEvent>();
 
         return new CustomerHasBeenRegisteredDomainEvent(
             id: id,
+            tenantId: parameter.customer.TenantId,
             timestamp: timestamp,
+            executionUser: parameter.executionUser,
+            sourcePlatform: parameter.sourcePlatform,
             domainEventType: domainEventType,
-            parameter
+            parameter.customer
         );
     }
 }

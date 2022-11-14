@@ -7,10 +7,13 @@ public record CustomerHasBeenRegisteredDomainEvent
 {
     public CustomerHasBeenRegisteredDomainEvent(
         Guid id,
+        Guid tenantId,
         DateTime timestamp,
+        string executionUser,
+        string sourcePlatform,
         string domainEventType,
         Customer customer
-    ) : base(id, timestamp, domainEventType, customer)
+    ) : base(id, tenantId, timestamp, executionUser, sourcePlatform, domainEventType, customer)
     {
     }
 }

@@ -3,6 +3,6 @@
 namespace MCB.Demos.ShopDemo.Microservices.Customer.Domain.Entities.Customers.Events.CustomerHasBeenRegistered.Factories.Interfaces;
 
 public interface ICustomerHasBeenRegisteredDomainEventFactory
-    : IFactoryWithParameter<CustomerHasBeenRegisteredDomainEvent, Customer>
+    : IFactoryWithParameter<CustomerHasBeenRegisteredDomainEvent, (Customer customer, string executionUser, string sourcePlatform)>
 {
 }
