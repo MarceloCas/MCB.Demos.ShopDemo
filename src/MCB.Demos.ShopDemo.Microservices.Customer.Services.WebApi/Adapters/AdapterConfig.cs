@@ -9,7 +9,7 @@ public class AdapterConfig
     // Public Methods
     public static void Configure(TypeAdapterConfig typeAdapterConfig)
     {
-        ConfigureForWebApi(typeAdapterConfig);
+        ConfigureForWebApi();
 
         Application.Adapters.AdapterConfig.Configure(typeAdapterConfig);
         Domain.Adapters.AdapterConfig.Configure(typeAdapterConfig);
@@ -17,8 +17,8 @@ public class AdapterConfig
     }
 
     // Private Methods
-    private static void ConfigureForWebApi(TypeAdapterConfig typeAdapterConfig)
+    private static void ConfigureForWebApi()
     {
-        typeAdapterConfig.ForType<RegisterNewCustomerPayload, RegisterNewCustomerUseCaseInput>();
+        TypeAdapterConfig<RegisterNewCustomerPayload, RegisterNewCustomerUseCaseInput>.NewConfig();
     }
 }

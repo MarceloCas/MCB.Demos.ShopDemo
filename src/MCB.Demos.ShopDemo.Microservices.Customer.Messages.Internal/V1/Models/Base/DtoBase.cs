@@ -1,6 +1,6 @@
 ﻿namespace MCB.Demos.ShopDemo.Microservices.Customer.Messages.Internal.V1.Models.Base;
 
-public abstract class DtoBase
+public class DtoBase
 {
     // Properties
     public Guid Id { get; set; }

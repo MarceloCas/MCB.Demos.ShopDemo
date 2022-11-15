@@ -16,7 +16,8 @@ public class MongoDbDataModelBaseMap
             classMap.MapIdMember(dataModel => dataModel.Id)
                 .SetSerializer(new GuidSerializer(BsonType.String));
 
-            classMap.MapMember(dataModel => dataModel.TenantId);
+            classMap.MapMember(dataModel => dataModel.TenantId)
+                .SetSerializer(new GuidSerializer(BsonType.String));
 
             classMap.MapMember(dataModel => dataModel.CreatedAt);
             classMap.MapMember(dataModel => dataModel.CreatedBy);
